@@ -75,14 +75,14 @@ export const TerritoryMap: React.FC = () => {
       availableCount: 14,
       coords: { left: '83%', top: '32%' } 
     },
-    { 
-      id: 'OH', 
-      name: 'Ohio', 
-      code: 'OH', 
-      status: 'Available', 
-      licensedCount: 2, 
+    {
+      id: 'MA',
+      name: 'Massachusetts',
+      code: 'MA',
+      status: 'Available',
+      licensedCount: 2,
       availableCount: 11,
-      coords: { left: '71%', top: '40%' } 
+      coords: { left: '86%', top: '27%' }
     },
   ];
 

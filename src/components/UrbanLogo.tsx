@@ -17,7 +17,7 @@ export const UrbanLogo: React.FC<UrbanLogoProps> = ({
         style={{ width: sizeCm, height: 'auto', maxHeight: sizeCm }}
       >
         <img 
-          src="/logo.png"
+          src="/logo.jpeg"
           alt="URBAN Logo" 
           className="w-full h-full object-contain brightness-105 contrast-105"
         />
