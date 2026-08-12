@@ -45,12 +45,12 @@ export const Footer: React.FC = () => {
           <div>
             <h4 className="text-white font-bold uppercase tracking-wider mb-4">Navigation</h4>
             <ul className="space-y-2.5">
-              <li><a href="#opportunity" className="hover:text-white transition-colors">Opportunity</a></li>
-              <li><a href="#how-it-works" className="hover:text-white transition-colors">How It Works</a></li>
-              <li><a href="#benefits" className="hover:text-white transition-colors">Benefits</a></li>
-              <li><a href="#founder-county" className="hover:text-white transition-colors">Founder County</a></li>
-              <li><a href="#territories" className="hover:text-white transition-colors">Territories</a></li>
-              <li><a href="#faq" className="hover:text-white transition-colors">FAQ</a></li>
+              <li><a href="/" className="hover:text-white transition-colors">Home</a></li>
+              <li><a href="/#download-app" className="hover:text-white transition-colors">Mobility App</a></li>
+              <li><a href="/regional-licensing" className="hover:text-white transition-colors">Regional Licensing</a></li>
+              <li><a href="/regional-licensing#how-it-works" className="hover:text-white transition-colors">How It Works</a></li>
+              <li><a href="/regional-licensing#territories" className="hover:text-white transition-colors">Territories</a></li>
+              <li><a href="/regional-licensing#faq" className="hover:text-white transition-colors">FAQ</a></li>
             </ul>
           </div>
 

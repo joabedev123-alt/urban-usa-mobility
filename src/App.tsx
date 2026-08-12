@@ -1,49 +1,38 @@
 import React from 'react';
+import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom';
 import { Header } from './components/Header';
-import { Hero } from './components/Hero';
-import { OpportunityIntro } from './components/OpportunityIntro';
-import { WhatIsUrban } from './components/WhatIsUrban';
-import { HowItWorks } from './components/HowItWorks';
-import { Benefits } from './components/Benefits';
-import { Manifesto } from './components/Manifesto';
-import { InvestmentModel } from './components/InvestmentModel';
-import { WhoCanParticipate } from './components/WhoCanParticipate';
-import { FounderCounty } from './components/FounderCounty';
-import { TerritoryMap } from './components/TerritoryMap';
-import { PlatformTech } from './components/PlatformTech';
-import { SupportEcosystem } from './components/SupportEcosystem';
-import { SocialProof } from './components/SocialProof';
-import { FinalCTA } from './components/FinalCTA';
-import { LeadCaptureForm } from './components/LeadCaptureForm';
-import { FAQ } from './components/FAQ';
-import { FloatingWhatsApp } from './components/FloatingWhatsApp';
 import { Footer } from './components/Footer';
+import { FloatingWhatsApp } from './components/FloatingWhatsApp';
+import { Home } from './pages/Home';
+import { Licensing } from './pages/Licensing';
+
+const ScrollToTop: React.FC = () => {
+  const { pathname, hash } = useLocation();
+
+  React.useEffect(() => {
+    if (hash) return;
+    window.scrollTo(0, 0);
+  }, [pathname, hash]);
+
+  return null;
+};
 
 export function App() {
   return (
-    <div className="min-h-screen bg-midnight text-ice selection:bg-urban-blue selection:text-white">
-      <Header />
-      <main>
-        <Hero />
-        <OpportunityIntro />
-        <WhatIsUrban />
-        <HowItWorks />
-        <Benefits />
-        <Manifesto />
-        <InvestmentModel />
-        <WhoCanParticipate />
-        <FounderCounty />
-        <TerritoryMap />
-        <PlatformTech />
-        <SupportEcosystem />
-        <SocialProof />
-        <FinalCTA />
-        <LeadCaptureForm />
-        <FAQ />
-      </main>
-      <Footer />
-      <FloatingWhatsApp />
-    </div>
+    <BrowserRouter>
+      <div className="min-h-screen bg-midnight text-ice selection:bg-urban-blue selection:text-white">
+        <ScrollToTop />
+        <Header />
+        <main>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/regional-licensing" element={<Licensing />} />
+          </Routes>
+        </main>
+        <Footer />
+        <FloatingWhatsApp />
+      </div>
+    </BrowserRouter>
   );
 }
 

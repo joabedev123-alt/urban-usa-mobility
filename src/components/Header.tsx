@@ -1,9 +1,12 @@
 import React, { useState, useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
 import { UrbanLogo } from './UrbanLogo';
 
 export const Header: React.FC = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const { pathname } = useLocation();
+  const isLicensing = pathname === '/regional-licensing';
 
   useEffect(() => {
     const handleScroll = () => {
@@ -17,7 +20,14 @@ export const Header: React.FC = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const navItems = [
+  const homeNavItems = [
+    { label: 'App', href: '#download-app' },
+    { label: 'Our Story', href: '#our-numbers' },
+    { label: 'Founder', href: '#founder' },
+    { label: 'Regional Licensing', href: '/regional-licensing' },
+  ];
+
+  const licensingNavItems = [
     { label: 'Opportunity', href: '#opportunity' },
     { label: 'How It Works', href: '#how-it-works' },
     { label: 'Benefits', href: '#benefits' },
@@ -25,6 +35,9 @@ export const Header: React.FC = () => {
     { label: 'Territories', href: '#territories' },
     { label: 'FAQ', href: '#faq' },
   ];
+
+  const navItems = isLicensing ? licensingNavItems : homeNavItems;
+  const ctaHref = isLicensing ? '#lead-form' : '/regional-licensing#lead-form';
 
   return (
     <header
@@ -37,7 +50,7 @@ export const Header: React.FC = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between">
           {/* Logo */}
-          <a href="#" className="flex items-center group">
+          <a href="/" className="flex items-center group">
             <UrbanLogo />
           </a>
 
@@ -57,7 +70,7 @@ export const Header: React.FC = () => {
           {/* CTA Actions */}
           <div className="hidden lg:flex items-center space-x-4">
             <a
-              href="#lead-form"
+              href={ctaHref}
               className="relative group overflow-hidden rounded-lg p-[1px] font-semibold text-xs uppercase tracking-wider focus:outline-none focus:ring-2 focus:ring-urban-electric focus:ring-offset-2 focus:ring-offset-midnight"
             >
               <span className="absolute inset-0 bg-gradient-to-r from-urban-blue via-urban-electric to-urban-light rounded-lg animate-pulse" />
@@ -70,7 +83,7 @@ export const Header: React.FC = () => {
           {/* Mobile Menu Button */}
           <div className="md:hidden flex items-center gap-3">
             <a
-              href="#lead-form"
+              href={ctaHref}
               className="text-[10px] font-bold tracking-wider uppercase px-3 py-2 rounded-md bg-urban-blue text-white"
             >
               RESERVE
@@ -104,7 +117,7 @@ export const Header: React.FC = () => {
 
             <div className="pt-4 flex flex-col gap-3">
               <a
-                href="#lead-form"
+                href={ctaHref}
                 onClick={() => setMobileMenuOpen(false)}
                 className="w-full text-center py-3 rounded-lg bg-gradient-to-r from-urban-blue to-urban-electric text-white font-bold text-sm tracking-wider uppercase shadow-lg shadow-urban-blue/30"
               >
