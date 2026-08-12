@@ -64,7 +64,7 @@ export const Footer: React.FC = () => {
               </li>
               <li className="flex items-center gap-2">
                 <i className="bi bi-envelope text-urban-light"></i>
-                <a href="mailto:licensing@urbanUSAapp.com" className="hover:text-white">licensing@urbanUSAapp.com</a>
+                <a href="mailto:support@urbanusaapp.com" className="hover:text-white">support@urbanusaapp.com</a>
               </li>
               <li className="flex items-center gap-2">
                 <i className="bi bi-telephone text-urban-light"></i>
