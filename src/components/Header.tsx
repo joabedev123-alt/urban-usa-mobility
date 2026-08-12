@@ -21,8 +21,8 @@ export const Header: React.FC = () => {
   }, []);
 
   const homeNavItems = [
-    { label: 'App', href: '#download-app' },
     { label: 'Drive With Us', href: '#driver-first' },
+    { label: 'Ride With Us', href: '#ride-with-us' },
     { label: 'Our Story', href: '#our-numbers' },
     { label: 'Founder', href: '#founder' },
   ];

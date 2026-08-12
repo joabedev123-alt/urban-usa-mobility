@@ -1,9 +1,11 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 
-const StoreBadge: React.FC<{ icon: string; eyebrow: string; label: string }> = ({ icon, eyebrow, label }) => (
+const StoreBadge: React.FC<{ icon: string; eyebrow: string; label: string; href: string }> = ({ icon, eyebrow, label, href }) => (
   <a
-    href="#"
+    href={href}
+    target="_blank"
+    rel="noopener noreferrer"
     className="flex items-center gap-3 px-6 py-3.5 rounded-xl bg-navy-card border border-navy-border hover:border-urban-electric/50 hover:bg-navy-card/80 transition-all"
   >
     <i className={`bi ${icon} text-2xl text-white`}></i>
@@ -13,6 +15,9 @@ const StoreBadge: React.FC<{ icon: string; eyebrow: string; label: string }> = (
     </div>
   </a>
 );
+
+const DRIVER_APP_STORE_URL = 'https://apps.apple.com/us/app/urban-driver-for-drivers/id1515298608';
+const DRIVER_GOOGLE_PLAY_URL = 'https://play.google.com/store/apps/details?id=production.urban.driver&hl=en-US';
 
 const PhoneMockup: React.FC = () => (
   <div className="relative mx-auto w-full max-w-[380px]">
@@ -41,7 +46,7 @@ export const AppShowcase: React.FC = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.7 }}
           >
-            <span className="text-xs font-bold uppercase tracking-widest text-urban-light">URBAN Mobility APP</span>
+            <span className="text-xs font-bold uppercase tracking-widest text-urban-light">URBAN Driver App</span>
             <h2 className="mt-4 text-3xl sm:text-5xl font-extrabold text-white leading-tight">
               DOWNLOAD OUR APP <br />
               <span className="text-gradient-blue font-black">AND ENJOY OUR BEST SERVICE!</span>
@@ -51,8 +56,8 @@ export const AppShowcase: React.FC = () => {
             </p>
 
             <div className="mt-10 flex flex-col sm:flex-row gap-4">
-              <StoreBadge icon="bi-apple" eyebrow="Download on the" label="App Store" />
-              <StoreBadge icon="bi-google-play" eyebrow="Get it on" label="Google Play" />
+              <StoreBadge icon="bi-apple" eyebrow="Download on the" label="App Store" href={DRIVER_APP_STORE_URL} />
+              <StoreBadge icon="bi-google-play" eyebrow="Get it on" label="Google Play" href={DRIVER_GOOGLE_PLAY_URL} />
             </div>
 
             <div className="mt-8 flex items-center gap-3 text-sm text-muted">

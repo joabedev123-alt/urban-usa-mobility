@@ -2,6 +2,7 @@ import React from 'react';
 import { HomeHero } from '../components/home/HomeHero';
 import { DriverFirst } from '../components/home/DriverFirst';
 import { AppShowcase } from '../components/home/AppShowcase';
+import { PassengerApp } from '../components/home/PassengerApp';
 import { GrowthStory } from '../components/home/GrowthStory';
 import { PartnershipModel } from '../components/home/PartnershipModel';
 import { RegionalOpportunityGrid } from '../components/home/RegionalOpportunityGrid';
@@ -14,6 +15,7 @@ export const Home: React.FC = () => {
       <HomeHero />
       <DriverFirst />
       <AppShowcase />
+      <PassengerApp />
       <GrowthStory />
       <PartnershipModel />
       <RegionalOpportunityGrid />
