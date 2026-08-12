@@ -2,7 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 
 const stats = [
-  { icon: 'bi-globe-americas', value: '3', label: 'CONTINENTS', sub: 'Presence in the Americas & Caribbean' },
+  { icon: 'bi-globe-americas', value: 'Americas', label: '& CARIBBEAN', sub: 'Regional presence across the hemisphere' },
   { icon: 'bi-phone', value: '500K+', label: 'APP DOWNLOADS', sub: 'More than 500 thousand' },
   { icon: 'bi-person-badge', value: '300K+', label: 'REGISTERED DRIVERS', sub: 'More than 300 thousand' },
   { icon: 'bi-signpost-split', value: '300+', label: 'CITIES', sub: 'Operating in Brazil and Paraguay' },

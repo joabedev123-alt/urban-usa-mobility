@@ -68,10 +68,10 @@ export const HomeHero: React.FC = () => {
           </a>
 
           <a
-            href="/regional-licensing"
+            href="#driver-first"
             className="w-full sm:w-auto px-8 py-4 rounded-xl bg-navy-card/90 text-ice font-semibold text-sm tracking-wider uppercase border border-navy-border hover:border-urban-electric/50 hover:bg-navy-card transition-all flex items-center justify-center gap-2"
           >
-            <span>BECOME AN OPERATOR</span>
+            <span>SEE HOW IT WORKS</span>
           </a>
         </motion.div>
 

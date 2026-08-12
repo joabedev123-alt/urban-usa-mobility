@@ -22,9 +22,9 @@ export const Header: React.FC = () => {
 
   const homeNavItems = [
     { label: 'App', href: '#download-app' },
+    { label: 'Drive With Us', href: '#driver-first' },
     { label: 'Our Story', href: '#our-numbers' },
     { label: 'Founder', href: '#founder' },
-    { label: 'Regional Licensing', href: '/regional-licensing' },
   ];
 
   const licensingNavItems = [
@@ -37,7 +37,9 @@ export const Header: React.FC = () => {
   ];
 
   const navItems = isLicensing ? licensingNavItems : homeNavItems;
-  const ctaHref = isLicensing ? '#lead-form' : '/regional-licensing#lead-form';
+  const ctaHref = isLicensing ? '#lead-form' : '#download-app';
+  const ctaLabel = isLicensing ? 'RESERVE YOUR REGION' : 'JOIN AS A DRIVER';
+  const ctaLabelShort = isLicensing ? 'RESERVE' : 'JOIN NOW';
 
   return (
     <header
@@ -75,7 +77,7 @@ export const Header: React.FC = () => {
             >
               <span className="absolute inset-0 bg-gradient-to-r from-urban-blue via-urban-electric to-urban-light rounded-lg animate-pulse" />
               <span className="relative block px-5 py-2.5 bg-midnight hover:bg-transparent rounded-[7px] text-white transition-all duration-300 font-bold tracking-wider">
-                RESERVE YOUR REGION
+                {ctaLabel}
               </span>
             </a>
           </div>
@@ -86,7 +88,7 @@ export const Header: React.FC = () => {
               href={ctaHref}
               className="text-[10px] font-bold tracking-wider uppercase px-3 py-2 rounded-md bg-urban-blue text-white"
             >
-              RESERVE
+              {ctaLabelShort}
             </a>
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
@@ -121,7 +123,7 @@ export const Header: React.FC = () => {
                 onClick={() => setMobileMenuOpen(false)}
                 className="w-full text-center py-3 rounded-lg bg-gradient-to-r from-urban-blue to-urban-electric text-white font-bold text-sm tracking-wider uppercase shadow-lg shadow-urban-blue/30"
               >
-                RESERVE YOUR REGION
+                {ctaLabel}
               </a>
             </div>
           </div>
