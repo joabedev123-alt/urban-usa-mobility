@@ -19,14 +19,16 @@ const StoreBadge: React.FC<{ icon: string; eyebrow: string; label: string; href:
 const DRIVER_APP_STORE_URL = 'https://apps.apple.com/us/app/urban-driver-for-drivers/id1515298608';
 const DRIVER_GOOGLE_PLAY_URL = 'https://play.google.com/store/apps/details?id=production.urban.driver&hl=en-US';
 
-const PhoneMockup: React.FC = () => (
-  <div className="relative mx-auto w-full max-w-[380px]">
-    <div className="relative rounded-3xl overflow-hidden shadow-2xl shadow-urban-blue/20 glow-effect">
+const ShowcaseVisual: React.FC = () => (
+  <div className="relative rounded-2xl p-1 bg-gradient-to-b from-navy-border/60 to-navy-card/40 backdrop-blur-xl border border-white/10 shadow-2xl overflow-hidden">
+    <div className="relative rounded-xl overflow-hidden aspect-[4/5] sm:aspect-[4/3]">
       <img
-        src="/app-mockup.png"
-        alt="URBAN Partner App Dashboard"
-        className="w-full h-auto object-contain"
+        src="/driver-app-showcase.png"
+        alt="Driver requesting a ride with the URBAN app at night"
+        className="w-full h-full object-cover"
       />
+      <div className="absolute inset-0 bg-gradient-to-t from-midnight via-midnight/10 to-transparent" />
+      <div className="absolute inset-0 bg-gradient-to-r from-midnight/40 via-transparent to-transparent" />
     </div>
   </div>
 );
@@ -72,7 +74,7 @@ export const AppShowcase: React.FC = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.7 }}
           >
-            <PhoneMockup />
+            <ShowcaseVisual />
           </motion.div>
         </div>
       </div>
