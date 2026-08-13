@@ -56,7 +56,7 @@ export const LeadCaptureForm: React.FC = () => {
       `Experience: ${formData.experience || 'N/A'}`,
     ].join('\n');
 
-    return `mailto:support@urbanusaapp.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    return `mailto:licensing@urbanusaapp.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
   };
 
   const handleSubmit = (e: React.FormEvent) => {
@@ -279,8 +279,8 @@ export const LeadCaptureForm: React.FC = () => {
               <p className="mt-3 text-sm text-ice/90 leading-relaxed font-medium">
                 Your email app should have opened with your application addressed to our team. If it didn't
                 open automatically, please email us directly at{' '}
-                <a href="mailto:support@urbanusaapp.com" className="text-urban-light underline">
-                  support@urbanusaapp.com
+                <a href="mailto:licensing@urbanusaapp.com" className="text-urban-light underline">
+                  licensing@urbanusaapp.com
                 </a>.
               </p>
 
