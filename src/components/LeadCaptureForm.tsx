@@ -44,16 +44,32 @@ export const LeadCaptureForm: React.FC = () => {
     return Object.keys(newErrors).length === 0;
   };
 
+  const buildMailtoUrl = () => {
+    const subject = `Territorial Application — ${formData.cityCounty}, ${formData.state}`;
+    const body = [
+      `Full Name: ${formData.fullName}`,
+      `Email Address: ${formData.email}`,
+      `Phone Number: ${formData.phone}`,
+      `City / County: ${formData.cityCounty}`,
+      `State: ${formData.state}`,
+      `Driver Count: ${formData.driverCount}`,
+      `Experience: ${formData.experience || 'N/A'}`,
+    ].join('\n');
+
+    return `mailto:support@urbanusaapp.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+  };
+
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (!validate()) return;
 
     setIsSubmitting(true);
-    // Simulate API call
+    window.location.href = buildMailtoUrl();
+
     setTimeout(() => {
       setIsSubmitting(false);
       setSubmitted(true);
-    }, 1200);
+    }, 800);
   };
 
   return (
@@ -258,10 +274,14 @@ export const LeadCaptureForm: React.FC = () => {
                 <i className="bi bi-check-circle-fill"></i>
               </div>
 
-              <h3 className="text-xl font-bold text-white">APPLICATION RECEIVED</h3>
+              <h3 className="text-xl font-bold text-white">APPLICATION READY TO SEND</h3>
 
               <p className="mt-3 text-sm text-ice/90 leading-relaxed font-medium">
-                Thank you. The Urban team will review your region and contact you with the next steps.
+                Your email app should have opened with your application addressed to our team. If it didn't
+                open automatically, please email us directly at{' '}
+                <a href="mailto:support@urbanusaapp.com" className="text-urban-light underline">
+                  support@urbanusaapp.com
+                </a>.
               </p>
 
               <div className="mt-6 pt-4 border-t border-navy-border/60">
