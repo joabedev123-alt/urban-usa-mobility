@@ -1,7 +1,15 @@
 import React from 'react';
+import { useLocation } from 'react-router-dom';
 import { UrbanLogo } from './UrbanLogo';
 
 export const Footer: React.FC = () => {
+  const { pathname } = useLocation();
+  const isLicensing = pathname === '/regional-licensing';
+
+  const contactEmail = isLicensing ? 'licensing@urbanusaapp.com' : 'support@urbanusaapp.com';
+  const contactPhoneDisplay = isLicensing ? '+1 407 388 5804' : '+1 407 726 1547';
+  const contactPhoneHref = isLicensing ? '+14073885804' : '+14077261547';
+
   return (
     <footer className="bg-midnight border-t border-navy-border pt-16 pb-12 text-xs text-muted">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -64,11 +72,11 @@ export const Footer: React.FC = () => {
               </li>
               <li className="flex items-center gap-2">
                 <i className="bi bi-envelope text-urban-light"></i>
-                <a href="mailto:support@urbanusaapp.com" className="hover:text-white">support@urbanusaapp.com</a>
+                <a href={`mailto:${contactEmail}`} className="hover:text-white">{contactEmail}</a>
               </li>
               <li className="flex items-center gap-2">
                 <i className="bi bi-telephone text-urban-light"></i>
-                <a href="tel:+14077261547" className="hover:text-white">+1 407 726 1547</a>
+                <a href={`tel:${contactPhoneHref}`} className="hover:text-white">{contactPhoneDisplay}</a>
               </li>
               <li className="flex items-center gap-2">
                 <i className="bi bi-geo-alt text-urban-light"></i>
