@@ -2,9 +2,11 @@ export interface LeadFormData {
   fullName: string;
   email: string;
   phone: string;
+  address: string;
   cityCounty: string;
   state: string;
-  driverCount: string;
+  worksWithDriverGroups: string;
+  investor: string;
   experience?: string;
   agreeToContact: boolean;
 }

@@ -17,9 +17,11 @@ export const LeadCaptureForm: React.FC = () => {
     fullName: '',
     email: '',
     phone: '',
+    address: '',
     cityCounty: '',
     state: 'Florida',
-    driverCount: '10-50 drivers',
+    worksWithDriverGroups: 'No',
+    investor: 'No',
     experience: '',
     agreeToContact: false,
   });
@@ -37,6 +39,7 @@ export const LeadCaptureForm: React.FC = () => {
       newErrors.email = 'Please enter a valid email address';
     }
     if (!formData.phone.trim()) newErrors.phone = 'Phone number is required';
+    if (!formData.address.trim()) newErrors.address = 'Address is required';
     if (!formData.cityCounty.trim()) newErrors.cityCounty = 'City or County is required';
     if (!formData.agreeToContact) newErrors.agreeToContact = 'You must agree to be contacted to submit';
 
@@ -50,9 +53,11 @@ export const LeadCaptureForm: React.FC = () => {
       `Full Name: ${formData.fullName}`,
       `Email Address: ${formData.email}`,
       `Phone Number: ${formData.phone}`,
+      `Address: ${formData.address}`,
       `City / County: ${formData.cityCounty}`,
       `State: ${formData.state}`,
-      `Driver Count: ${formData.driverCount}`,
+      `Works With Groups of Drivers: ${formData.worksWithDriverGroups}`,
+      `Investor: ${formData.investor}`,
       `Experience: ${formData.experience || 'N/A'}`,
     ].join('\n');
 
@@ -132,7 +137,7 @@ export const LeadCaptureForm: React.FC = () => {
               </div>
             </div>
 
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
               {/* Phone */}
               <div>
                 <label className="block text-xs font-bold uppercase tracking-wider text-ice mb-2">
@@ -150,6 +155,32 @@ export const LeadCaptureForm: React.FC = () => {
                 {errors.phone && <p className="mt-1 text-[11px] text-rose-400 font-medium">{errors.phone}</p>}
               </div>
 
+              {/* Address */}
+              <div>
+                <label className="block text-xs font-bold uppercase tracking-wider text-ice mb-2">
+                  Address <span className="text-urban-light">*</span>
+                </label>
+                <input
+                  type="text"
+                  value={formData.address}
+                  onChange={(e) => setFormData({ ...formData, address: e.target.value })}
+                  placeholder="Street address"
+                  className={`w-full px-4 py-3.5 rounded-xl bg-navy-card/90 border ${
+                    errors.address ? 'border-rose-500' : 'border-navy-border focus:border-urban-electric'
+                  } text-white placeholder-muted/50 text-sm focus:outline-none focus:ring-2 focus:ring-urban-electric/40 transition-all`}
+                />
+                {errors.address && <p className="mt-1 text-[11px] text-rose-400 font-medium">{errors.address}</p>}
+              </div>
+            </div>
+
+            {/* Section Header */}
+            <div className="pt-2">
+              <span className="text-xs font-bold uppercase tracking-widest text-urban-light">
+                Inquiries &amp; Opportunities
+              </span>
+            </div>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
               {/* City / County */}
               <div>
                 <label className="block text-xs font-bold uppercase tracking-wider text-ice mb-2">
@@ -186,21 +217,36 @@ export const LeadCaptureForm: React.FC = () => {
               </div>
             </div>
 
-            {/* Driver Count Selector */}
-            <div>
-              <label className="block text-xs font-bold uppercase tracking-wider text-ice mb-2">
-                How many drivers do you currently work with or plan to bring together?
-              </label>
-              <select
-                value={formData.driverCount}
-                onChange={(e) => setFormData({ ...formData, driverCount: e.target.value })}
-                className="w-full px-4 py-3.5 rounded-xl bg-navy-card/90 border border-navy-border focus:border-urban-electric text-white text-sm focus:outline-none focus:ring-2 focus:ring-urban-electric/40 transition-all"
-              >
-                <option value="1-10 drivers" className="bg-midnight text-white">1 - 10 drivers (Individual / Small Fleet)</option>
-                <option value="10-50 drivers" className="bg-midnight text-white">10 - 50 drivers (Founding Group / Local Fleet)</option>
-                <option value="50-200 drivers" className="bg-midnight text-white">50 - 200 drivers (Regional Fleet / Operator)</option>
-                <option value="200+ drivers" className="bg-midnight text-white">200+ drivers (Metropolitan Scale Operator)</option>
-              </select>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+              {/* Works With Driver Groups */}
+              <div>
+                <label className="block text-xs font-bold uppercase tracking-wider text-ice mb-2">
+                  Do You Work With Groups of Drivers?
+                </label>
+                <select
+                  value={formData.worksWithDriverGroups}
+                  onChange={(e) => setFormData({ ...formData, worksWithDriverGroups: e.target.value })}
+                  className="w-full px-4 py-3.5 rounded-xl bg-navy-card/90 border border-navy-border focus:border-urban-electric text-white text-sm focus:outline-none focus:ring-2 focus:ring-urban-electric/40 transition-all"
+                >
+                  <option value="Yes" className="bg-midnight text-white">Yes</option>
+                  <option value="No" className="bg-midnight text-white">No</option>
+                </select>
+              </div>
+
+              {/* Investor */}
+              <div>
+                <label className="block text-xs font-bold uppercase tracking-wider text-ice mb-2">
+                  Investor
+                </label>
+                <select
+                  value={formData.investor}
+                  onChange={(e) => setFormData({ ...formData, investor: e.target.value })}
+                  className="w-full px-4 py-3.5 rounded-xl bg-navy-card/90 border border-navy-border focus:border-urban-electric text-white text-sm focus:outline-none focus:ring-2 focus:ring-urban-electric/40 transition-all"
+                >
+                  <option value="Yes" className="bg-midnight text-white">Yes</option>
+                  <option value="No" className="bg-midnight text-white">No</option>
+                </select>
+              </div>
             </div>
 
             {/* Experience (Optional) */}
